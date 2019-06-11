@@ -15,7 +15,7 @@ public class WeatherDataModel {
     //Create a WeatherDataModel from a JSON:
     public static WeatherDataModel fromJson(JSONObject jsonObject) {
 
-
+        //Try to read Json from OpenWeatherMap
         try {
             WeatherDataModel weatherData = new WeatherDataModel();
 
@@ -38,7 +38,7 @@ public class WeatherDataModel {
     }
 
 
-    // TODO: Uncomment to this to get the weather image name from the condition:
+    //Get the weather image names from the condition:
     private static String updateWeatherIcon(int condition) {
 
         if (condition >= 0 && condition < 300) {
