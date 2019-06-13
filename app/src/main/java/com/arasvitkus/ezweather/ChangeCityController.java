@@ -1,5 +1,6 @@
 package com.arasvitkus.ezweather;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class ChangeCityController extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Set layout view
         setContentView(R.layout.change_city_layout);
 
         //Find the constraints in layout
@@ -38,8 +40,9 @@ public class ChangeCityController extends AppCompatActivity {
                 //New intent from weather controller class
                 Intent newCityIntent = new Intent(ChangeCityController.this, WeatherController.class);
                 newCityIntent.putExtra("City", newCity);
-                startActivity(newCityIntent);
-
+                //startActivity(newCityIntent);
+                setResult(Activity.RESULT_OK, newCityIntent);
+                finish();
                 return false;
             }
         });

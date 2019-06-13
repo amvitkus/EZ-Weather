@@ -31,6 +31,8 @@ import cz.msebera.android.httpclient.Header;
 public class WeatherController extends AppCompatActivity {
 
     //Constants:
+    final int NEW_CITY_CODE =456;
+    final String LOGCAT_TAG = "EZWeather";
     final int REQUEST_CODE = 123;
     final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
     //App ID to use OpenWeather data
@@ -52,6 +54,7 @@ public class WeatherController extends AppCompatActivity {
     //LocationManager and a LocationListener declared
     LocationManager mLocationManager;
     LocationListener mLocationListener;
+    private boolean mUseLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,7 @@ public class WeatherController extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(WeatherController.this, ChangeCityController.class);
-                startActivity(myIntent);
+                startActivityForResult(myIntent, NEW_CITY_CODE);
             }
         });
     }
@@ -82,9 +85,11 @@ public class WeatherController extends AppCompatActivity {
         //Added logs to check if working in Logcat
         Log.d("EZWeather", "onResume() called");
 
+        //Get new intent
         Intent myIntent = getIntent();
         String city = myIntent.getStringExtra("City");
 
+        //If city is not null, get weather for new city, otherwise log message and get current weather
         if(city != null) {
             getWeatherForNewCity(city);
         } else {
@@ -149,6 +154,7 @@ public class WeatherController extends AppCompatActivity {
             }
         };
 
+        //Autocode generated here
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -213,6 +219,22 @@ public class WeatherController extends AppCompatActivity {
         int resourceID = getResources().getIdentifier(weather.getIconName(), "drawable", getPackageName());
         mWeatherImage.setImageResource(resourceID);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.d(LOGCAT_TAG, "onActivityResult() called");
+        if (requestCode == NEW_CITY_CODE) {
+            if (resultCode == RESULT_OK) {
+                String city = data.getStringExtra("City");
+                Log.d(LOGCAT_TAG, "New city is " + city);
+
+                mUseLocation = false;
+                getWeatherForNewCity(city);
+            }
+        }
     }
 
     //onPause() method
