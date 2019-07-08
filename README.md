@@ -23,6 +23,9 @@ Add Celsius option.
 Add 10 day forecast prediction and current radar at location.
 
 
+Brainstorm more ideas.
+
+
 
 Main App Icon Launcher Credit:
 
