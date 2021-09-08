@@ -11,6 +11,9 @@ This app shows the use and linking of a free API to fetch data from and display 
 
 This app is for people who want a basic weather/temperature display and for me to learn about using APIs.
 
+Sceenshots:
+
+
 
 INSTALLATION:
 
