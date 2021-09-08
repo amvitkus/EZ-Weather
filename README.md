@@ -1,5 +1,5 @@
 # EZ-Weather
-No longer developed - looking to rewrite.
+No longer developed - complete and functional. Maybe a rewrite in the future.
 
 A simple weather app utilizing OpenWeatherMap API, written in Java. Has two screens/layouts. User presses the choose city button to enter in a new city and then the app brings up the weather. The app display a basic picture for the weather and temperature in farenheit for the user. The code in the app uses COARSE_LOCATION instead of FINE_LOCATION for finding proper gps coordinates.
 
