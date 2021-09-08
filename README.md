@@ -11,8 +11,6 @@ This app shows the use and linking of a free API to fetch data from and display 
 
 This app is for people who want a basic weather/temperature display and for me to learn about using APIs.
 
-Sceenshots:
-
 
 
 INSTALLATION:
@@ -20,6 +18,10 @@ INSTALLATION:
 
 Fork it or import the zip file into Android Studio. Run it from an emulator or transfer it onto the users device.
 
+
+SCREENSHOTS:
+![One](https://raw.githubusercontent.com/amvitkus/ez-weather/master/1.png)
+![Two](https://raw.githubusercontent.com/amvitkus/ez-weather/master/2.png)
 
 TO DO:
 
