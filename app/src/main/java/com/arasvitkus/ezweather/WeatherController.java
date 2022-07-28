@@ -35,8 +35,8 @@ public class WeatherController extends AppCompatActivity {
     final String LOGCAT_TAG = "EZWeather";
     final int REQUEST_CODE = 123;
     final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
-    //App ID to use OpenWeather data
-    final String APP_ID = "adb778109372c4d12f0b391170d49efc";
+    //App ID to use OpenWeather data, reikia but ah, de, be raides pirmos tris
+    final String APP_ID = "btr778109372c4d12f0b391170d49efc";
     //Time between location updates (5000 milliseconds or 5 seconds)
     final long MIN_TIME = 5000;
     //Distance between location updates (1000m or 1km)
